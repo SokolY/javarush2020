@@ -1,6 +1,6 @@
 package com.javarush.task.task09.task0908;
 
-/* 
+/*
 Исключение при работе со строками
 */
 
@@ -11,9 +11,8 @@ public class Solution {
         try {
             String s = null;
             String m = s.toLowerCase();
-        }
-        catch (NullPointerException m){
-//            System.out.println("String length is null");
+        } catch (NullPointerException m) {
+//            System.out.println("String length is null")
             System.out.println(m);
         }
 
