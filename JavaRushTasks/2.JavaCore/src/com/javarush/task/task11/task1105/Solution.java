@@ -12,6 +12,9 @@ public class Solution {
 
     }
 
+    public class Accaunten extends Worker {
+
+    }
     public class Clerk extends Worker{
 
     }

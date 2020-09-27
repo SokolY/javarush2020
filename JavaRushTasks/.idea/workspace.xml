@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="TasksForExtends">
-      <change afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1101/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1101/Условие.jrtc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1102/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1102/Условие.jrtc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1103/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1103/Условие.jrtc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1105/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1105/Условие.jrtc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.JavaSyntax/src/com/javarush/task/task09/task0908/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/1.JavaSyntax/src/com/javarush/task/task09/task0908/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaRushPlugin.properties" beforeDir="false" afterPath="$PROJECT_DIR$/JavaRushPlugin.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out.log" beforeDir="false" afterPath="$PROJECT_DIR$/out.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1105/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1105/Solution.java" afterDir="false" />
     </list>
     <ignored path="JavaRushTasks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,16 +25,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1105/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+            <state relative-caret-position="85">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Temp/Валидация">
           <provider selected="true" editor-type-id="HomeWorkEditorType_Id" />
         </entry>
@@ -184,7 +174,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1601231644522" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1601234533656" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -703,15 +693,15 @@
     <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1105/Условие.jrtc">
       <provider selected="true" editor-type-id="HomeWorkEditorType_Id" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1105/Solution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Валидация">
       <provider selected="true" editor-type-id="HomeWorkEditorType_Id" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task11/task1105/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
