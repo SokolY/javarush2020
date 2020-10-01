@@ -1,0 +1,212 @@
+System.out.println(abs(10 - a) < abs(10 - b) ? a : b);
+
+\\-----------
+
+int a=Integer.parseInt(new InputStreamReader(System.in).readLine());
+Или просто 
+return Integer.parseInt(new InputStreamReader(System.in).readLine());
+
+\\------------------
+     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+     int a = Integer.parseInt(reader.readLine());
+ \\------------
+         InputStream inputStream = System.in;
+        Reader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+//---------------
+Float minute = Float.parseFloat(new BufferedReader(new InputStreamReader(System.in)).readLine());
+ Float t = Float.parseFloat(a);
+\\\--------------
+String s = new String("Mama");
+String s2 = new String("Mama");
+System.out.println(s.equals(s2));
+\\----------------------
+ for (int i = 0; i<3; i++)
+        {
+            int figure = Integer.parseInt(reader.readLine());
+            if (figure>0)
+            positive++;
+            if (figure<0)
+            negative++;
+        }
+\\------------
+String s = buffer.readLine();
+//---------------
+class Cat {
+    public String name;
+
+
+public String getName() {
+        return name;
+    }
+
+public void setName(String name) {
+        this.name = name;
+    }
+}
+//------------------
+avg = (float)sum/count;
+//-------------
+class MyFile
+{
+    private String filename = null;
+    public void initialize(String name)
+    {
+        this.filename = name;
+    }
+
+    public void initialize(String folder, String name)
+    {
+        this.filename = folder + name;
+    }
+
+…
+}
+\\-----------------
+  public MyFile(MyFile file, String name)
+  {
+    this.filename = file.getFolder() + name;
+  }
+//-------------------
+for (int i = 0 ; i < 1000000; i++) {
+
+           Cat cat = new Cat();
+           cat = null;//вот здесь первый объект становится доступен сборщику мусора
+       }
+//----------------------
+    public static int catCount = 0;
+    String name;
+    public Cat(String name){
+        catCount++;
+        this.name = name;
+    }
+	//------------------
+	
+	Int[][] myTwoDimentionalArray = new int [8][8];
+	
+	String[] seasons  = new String[4];
+	String[] seasons  = {"Winter", "Spring", "Summer", "Autumn"};
+	
+	//------------------
+	for (int i = 0; i < cats.length; i++) {
+   for (int j = 0; j < cats[i].length; j++) {
+       System.out.println(cats[i][j]);
+   }
+}
+//================
+text += ", пол: " + (this.sex ? "мужской" : "женский");
+
+//==================
+ Human grandMother, grandFather, grandMother2, grandFather2, mother, father;
+        ArrayList<Human> family = new ArrayList<Human>();
+        family.add(grandMother = new Human("Stasya", false, 88));
+        family.add(grandFather = new Human("Yaroslav", true, 72));
+        family.add(grandMother2 = new Human("Olga", false, 83));
+        family.add(grandFather2 = new Human("Timofiy", true, 82));
+        family.add(mother = new Human("Valya", false, 58, grandFather2, grandMother2));
+        family.add(father = new Human("Igor", true, 59, grandFather, grandMother));
+        family.add(new Human("Nadya", false, 67, grandFather2, grandMother2));
+        family.add(new Human("Yura", true,35, mother, father));
+        family.add(new Human("Volodya", true, 32, mother, father));
+        for(Human hum :  family){
+            System.out.println(hum);
+        }
+//===========================
+    public static void printKeys(Map<String, String> map) {
+        //        for(Map.Entry<String,String> itter : map.entrySet()){
+//            System.out.println(itter.getKey());
+//        }
+        Iterator itte = map.entrySet().iterator();
+        while (itte.hasNext()){
+            Map.Entry pair = (Map.Entry)itte.next();
+            System.out.println(pair.getKey());
+        }
+        //напишите тут ваш код
+    }
+==========================
+    Iterator<Integer> integerIterator = set.iterator();
+    while (integerIterator.hasNext()){
+        Integer x = integerIterator.next();
+        if (x>10){
+          integerIterator.remove();
+        }
+===============================
+ Map<String, String> copy = new HashMap<>(map);
+        for (Map.Entry<String, String> pair : copy.entrySet()) {
+======================
+ Set<Object> copy = new HashSet<>(pets);
+ ========================================
+Ребята, может кому-то помогу, попробую описать, как лучше поступить при решении данной задачи.
+
+8 уровень это вообще что-то с чем-то, настолько сложная для понимания тема, особенно с Map-ами, и такое поверхностное объяснение приводит нас всех в комменты под задачей )))
+
+Я тоже, как увидел данную задачу, аж потерял интерес к дальнейшему изучению, но потом потихоньку начал осваивать доп материал. 
+
+Во-первых, обязательно забегите вперед и прочитайте 9-ю лекцию 8-го уровня, изучите все материалы, ссылки на которые дает профессор. 
+
+Во-вторых, обязательно надо понять, как работает HashMap и вообще, что такое Hash-функция, JavaRush этот материал объяснила просто отвратительно, поэтому рекомендую сторонние материалы. Вот список, что точно нужно прочитать и посмотреть:
+
+https://javarush.ru/groups/posts/1940-klass-hashmap-
+https://habr.com/ru/post/421179/
+https://habr.com/ru/post/128017/
+https://javarush.ru/groups/posts/763-9-glavnihkh-voprosov-o-map-v-java
+https://www.youtube.com/watch?v=lWnzRILIEZ0&list=PLWatAKdDQ0Bk7WkgosVZQVLgTi1-MFPtF&index=7&t=0s
+Ну и самое главное, это как работать с датами ))) https://javarush.ru/groups/posts/1941-kak-ne-poterjatjhsja-vo-vremeni--datetime-i-calendar
+
+По началу покажется, что материала слишком много, но пугаться не стоит и торопиться тоже. Лучше сейчас понять суть, а не поверхностно решать задачки, надеясь, что потом все само разрешиться. Нет! Так не работает, на 8 уровне надо понять именно суть работы коллекций, Map-ов, итераторов и т.д. 
+
+Буду очень рад, если кому-то помог этим сообщением )))
+==========================
+
+ Integer [] ar = new Integer[array.length];
+        for (int i = 0; i < array.length; i++){
+            ar[i] = array[i];
+        }
+==========================
+        while (it.hasNext()){
+            Map.Entry pair = (Map.Entry) it.next();
+            if (pair.getKey().equals(expMonth)){
+                monthNum = (int)pair.getValue();
+                break;
+            }
+        }
+
+
+        for (Map.Entry<String, Integer> pait : months.entrySet()){
+            if (pait.getKey().equals(expMonth)){
+                monthNum = pait.getValue();
+                break;
+            }
+        }
+        System.out.println(expMonth + " is the " + monthNum + " month");
+================
+public class Car {
+
+   private String model;
+   private int maxSpeed;
+   private int yearOfManufacture;
+
+   public Car(String model, int maxSpeed, int yearOfManufacture) {
+       this.model = model;
+       this.maxSpeed = maxSpeed;
+       this.yearOfManufacture = yearOfManufacture;
+   }
+
+
+public void gas() {
+       //...газ
+   }
+
+public void brake() {
+       //...тормоз
+   }
+}
+
+
+public class Truck extends Car {
+
+   public Truck(String model, int maxSpeed, int yearOfManufacture) {
+       super(model, maxSpeed, yearOfManufacture);
+   }
+}
+==================
