@@ -208,5 +208,20 @@ public class Truck extends Car {
    public Truck(String model, int maxSpeed, int yearOfManufacture) {
        super(model, maxSpeed, yearOfManufacture);
    }
-}
+======================
+int x = Arrays.stream(inputArray).min().getAsInt();
+int y = Arrays.stream(inputArray).max().getAsInt();
+ return new Pair<Integer, Integer>(x, y);
 ==================
+public enum Action {
+        Cat, Bird, Lamp, Dog
+    }
+public static void printObjectType(Object o) {
+        Action a = Action.valueOf(o.getClass().getSimpleName());
+        switch (a) {
+            case Cat:
+                System.out.println("Кошка");
+                break;
+        }
+    }
+=================
