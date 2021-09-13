@@ -11,6 +11,8 @@ public class MinesweeperGame extends Game {
     private GameObject[][] gameField = new GameObject[SIDE][SIDE];
     private int countMinesOnField;
     private final static String MINE = "\uD83D\uDCA3";
+    private final static String FLAG = "\uD83D\uDEA9";
+    private int countFlags;
 
     @Override
     public void initialize() {
@@ -30,6 +32,7 @@ public class MinesweeperGame extends Game {
             }
         }
         countMineNeighbors();
+        countFlags = countMinesOnField;
     }
 
     private List<GameObject> getNeighbors(GameObject gameObject) {
