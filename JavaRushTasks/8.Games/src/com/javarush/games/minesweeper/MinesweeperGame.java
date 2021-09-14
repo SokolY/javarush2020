@@ -71,6 +71,9 @@ public class MinesweeperGame extends Game {
     }
     private void openTile(int x, int y) {
         GameObject gameObject = gameField[y][x];
+        if(gameObject.isOpen || gameObject.isFlag || isGameStopped == true){
+            return;
+        }
         gameObject.isOpen = true;
         setCellColor(x, y, Color.GREEN);
         if (gameObject.isMine) {
@@ -86,9 +89,11 @@ public class MinesweeperGame extends Game {
                 }
             }
 
-        } else {
+        }
+        else {
             setCellNumber(x, y, gameObject.countMineNeighbors);
         }
+
     }
     private void markTile(int x, int y){
         GameObject gameObject = gameField[y][x];
@@ -109,7 +114,7 @@ public class MinesweeperGame extends Game {
             setCellColor(x, y, Color.ORANGE);
         }
         else if (isGameStopped == true){
-
+            
         }
     }
     private void gameOver(){
@@ -118,8 +123,10 @@ public class MinesweeperGame extends Game {
     }
     @Override
     public void onMouseLeftClick(int x, int y) {
+
 //        super.onMouseLeftClick(x, y);
         openTile(x,y);
+
     }
     @Override
     public void onMouseRightClick(int x, int y){
