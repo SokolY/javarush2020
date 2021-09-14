@@ -11,6 +11,7 @@ public class MinesweeperGame extends Game {
     private GameObject[][] gameField = new GameObject[SIDE][SIDE];
     private int countMinesOnField;
     private boolean isGameStopped;
+    private int countClosedTiles = SIDE * SIDE;;
     private final static String MINE = "\uD83D\uDCA3";
     private final static String FLAG = "\uD83D\uDEA9";
     private int countFlags;
@@ -70,12 +71,17 @@ public class MinesweeperGame extends Game {
         }
     }
     private void openTile(int x, int y) {
-        GameObject gameObject = gameField[y][x];
+             GameObject gameObject = gameField[y][x];
         if(gameObject.isOpen || gameObject.isFlag || isGameStopped == true){
             return;
         }
+//        if(gameObject.isOpen == true){
+//
+//        }
         gameObject.isOpen = true;
+        countClosedTiles--;
         setCellColor(x, y, Color.GREEN);
+//
         if (gameObject.isMine) {
             setCellValue(gameObject.x, gameObject.y, MINE);
             setCellValueEx(x, y, Color.RED, MINE);
@@ -93,7 +99,21 @@ public class MinesweeperGame extends Game {
         else {
             setCellNumber(x, y, gameObject.countMineNeighbors);
         }
-
+//        List<GameObject> results=  new ArrayList<>();
+//        countClosedTiles = SIDE * SIDE;
+//        for (int b = 0; b<SIDE; b++){
+//            for(int a = 0; a<SIDE; a++){
+//                if (gameField[b][a].isOpen){
+//                    countClosedTiles--;
+//                }
+//            }
+//        }
+//        System.out.println("Closed fields in array: " + results.size());
+        System.out.println("Closed fields in array: " + countMinesOnField);
+        System.out.println("Closed fields in counter: " + countClosedTiles);
+        if (countMinesOnField == countClosedTiles && !gameObject.isMine){
+            win();
+        }
     }
     private void markTile(int x, int y){
         GameObject gameObject = gameField[y][x];
@@ -120,6 +140,10 @@ public class MinesweeperGame extends Game {
     private void gameOver(){
         isGameStopped = true;
         showMessageDialog(Color.BLUEVIOLET, "Game Over", Color.BISQUE, 22);
+    }
+    private void win(){
+        isGameStopped = true;
+        showMessageDialog(Color.BLUEVIOLET, "Congratulations yoo win!", Color.CHOCOLATE, 25);
     }
     @Override
     public void onMouseLeftClick(int x, int y) {
