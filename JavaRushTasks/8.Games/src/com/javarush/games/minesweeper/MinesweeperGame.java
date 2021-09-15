@@ -15,7 +15,8 @@ public class MinesweeperGame extends Game {
     private final static String MINE = "\uD83D\uDCA3";
     private final static String FLAG = "\uD83D\uDEA9";
     private int countFlags;
-
+    private int counter = 0;
+    private int score;
     @Override
     public void initialize() {
         setScreenSize(SIDE, SIDE);
@@ -81,7 +82,10 @@ public class MinesweeperGame extends Game {
         gameObject.isOpen = true;
         countClosedTiles--;
         setCellColor(x, y, Color.GREEN);
-//
+        if (gameObject.isOpen && !gameObject.isMine){
+            score +=5;
+        }
+
         if (gameObject.isMine) {
             setCellValue(gameObject.x, gameObject.y, MINE);
             setCellValueEx(x, y, Color.RED, MINE);
@@ -99,18 +103,8 @@ public class MinesweeperGame extends Game {
         else {
             setCellNumber(x, y, gameObject.countMineNeighbors);
         }
-//        List<GameObject> results=  new ArrayList<>();
-//        countClosedTiles = SIDE * SIDE;
-//        for (int b = 0; b<SIDE; b++){
-//            for(int a = 0; a<SIDE; a++){
-//                if (gameField[b][a].isOpen){
-//                    countClosedTiles--;
-//                }
-//            }
-//        }
-//        System.out.println("Closed fields in array: " + results.size());
-        System.out.println("Closed fields in array: " + countMinesOnField);
-        System.out.println("Closed fields in counter: " + countClosedTiles);
+        setScore(score);
+        System.out.println("Method openTile run times: " + counter++);
         if (countMinesOnField == countClosedTiles && !gameObject.isMine){
             win();
         }
