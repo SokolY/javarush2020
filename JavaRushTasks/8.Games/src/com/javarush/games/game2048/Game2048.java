@@ -19,7 +19,8 @@ public class Game2048 extends Game {
     private void drawScene(){
         for (int y = 0; y<gameField.length; y++){
             for (int x = 0; x<gameField[y].length; x++){
-                setCellColor(x, y, Color.RED);
+//                setCellColor(x, y, Color.RED);
+                setCellColoredNumber(x, y, gameField[y][x]);
             }
         }
     }
@@ -36,5 +37,65 @@ public class Game2048 extends Game {
             } else gameField[randY][randX] = 2;
         }
     }
+    private Color getColorByValue(int value){
+       Color returnColor = null;
+        switch (value) {
+            case 0: returnColor = Color.WHITE;
+                break;
+            case 2: returnColor = Color.AZURE;
+                    break;
+            case 4: returnColor = Color.BEIGE;
+                break;
+            case 8: returnColor = Color.BLUE;
+                 break;
+            case 16: returnColor = Color.BLUEVIOLET;
+                    break;
+            case 32: returnColor = Color.CHARTREUSE;
+                break;
+            case 64: returnColor = Color.CORAL;
+                 break;
+            case 128: returnColor = Color.CORNSILK;
+                    break;
+            case 256: returnColor = Color.DARKCYAN;
+                break;
+            case 512: returnColor = Color.YELLOW;
+                break;
+            case 1024: returnColor = Color.YELLOWGREEN;
+                break;
+            case 2048: returnColor = Color.GOLD;
+                    break;
 
+        }
+        return returnColor;
+    }
+    private void setCellColoredNumber(int x, int y, int value){
+        Color cellColor = getColorByValue(value);
+        switch (value) {
+            case 0:  setCellValueEx(x, y , cellColor, "");
+            break;
+            case 2: setCellValueEx(x, y , cellColor, "2");
+                break;
+            case 4: setCellValueEx(x, y , cellColor, "4");
+            break;
+            case  8: setCellValueEx(x, y , cellColor, "8");
+            break;
+            case  16: setCellValueEx(x, y , cellColor, "16");
+            break;
+            case 32:  setCellValueEx(x, y , cellColor, "32");
+            break;
+            case 64: setCellValueEx(x, y , cellColor, "64");
+                break;
+            case 128: setCellValueEx(x, y , cellColor, "128");
+            break;
+            case 256: setCellValueEx(x, y , cellColor, "256");
+                break;
+            case 512: setCellValueEx(x, y , cellColor, "512");
+                break;
+            case 1024: setCellValueEx(x, y , cellColor, "1024");
+                break;
+            case 2048: setCellValueEx(x, y , cellColor, "2048");
+                break;
+        }
+
+    }
 }
