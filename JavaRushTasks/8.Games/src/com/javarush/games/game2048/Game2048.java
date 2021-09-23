@@ -134,9 +134,28 @@ public class Game2048 extends Game {
         }
         else return true;
     }
-    private void moveLeft(){
+    private void moveLeft() {
+        boolean compresedRow = false;
+        boolean margedRow = false;
+            for (int i = 0; i < gameField.length; i++) {
+                if (compressRow(gameField[i])) {
+                    compresedRow = true;
+                }
+                if (mergeRow(gameField[i])) {
+                    margedRow = true;
+                }
+                if (compressRow(gameField[i])) {
+                    compresedRow = true;
+                }
+            }
+            if ((compresedRow == true) || (margedRow == true)) {
+                createNewNumber();
+            } else {
+                return;
+            }
+        }
 
-    }
+
     private void moveRight(){
 
     }
@@ -148,17 +167,25 @@ public class Game2048 extends Game {
     }
     @Override
     public void onKeyPress(Key key){
+        boolean isKeyMoved = false;
         if (key == Key.LEFT){
             moveLeft();
+            isKeyMoved = true;
         }
         else if(key == Key.RIGHT){
             moveRight();
+            isKeyMoved = true;
         }
         else if(key == Key.UP){
             moveUp();
+            isKeyMoved = true;
         }
         else if (key == Key.DOWN){
             moveDown();
+            isKeyMoved = true;
+        }
+        if(isKeyMoved){
+            drawScene();
         }
     }
 }
