@@ -178,29 +178,46 @@ public class Game2048 extends Game {
         }
     }
     private void moveRight(){
+        rotateClockwise();
+        rotateClockwise();
+        moveLeft();
+        rotateClockwise();
+        rotateClockwise();
     }
     private void moveUp(){
-
+       rotateClockwise();
+       rotateClockwise();
+       rotateClockwise();
+       moveLeft();
+       rotateClockwise();
     }
-    private void moveDown(){}{
-
+    private void moveDown(){
+        rotateClockwise();
+        moveLeft();
+        rotateClockwise();
+        rotateClockwise();
+        rotateClockwise();
     }
     @Override
     public void onKeyPress(Key key){
+        boolean isKeyPressed = false;
         if (key == Key.LEFT){
             moveLeft();
-            drawScene();
+            isKeyPressed = true;
         }
         else if(key == Key.RIGHT){
             moveRight();
-            drawScene();
+            isKeyPressed = true;
         }
         else if(key == Key.UP){
             moveUp();
-            drawScene();
+            isKeyPressed = true;
         }
         else if (key == Key.DOWN){
             moveDown();
+            isKeyPressed = true;
+        }
+        if(isKeyPressed){
             drawScene();
         }
     }
