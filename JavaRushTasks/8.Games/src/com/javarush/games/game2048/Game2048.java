@@ -134,30 +134,50 @@ public class Game2048 extends Game {
         }
         else return true;
     }
-    private void moveLeft() {
-        boolean compresedRow = false;
-        boolean margedRow = false;
-            for (int i = 0; i < gameField.length; i++) {
-                if (compressRow(gameField[i])) {
-                    compresedRow = true;
-                }
-                if (mergeRow(gameField[i])) {
-                    margedRow = true;
-                }
-                if (compressRow(gameField[i])) {
-                    compresedRow = true;
-                }
-            }
-            if ((compresedRow == true) || (margedRow == true)) {
-                createNewNumber();
-            } else {
-                return;
+    private void rotateClockwise(){
+        int[][] tempArray = new int[SIDE][SIDE];
+
+        for (int i = 0; i<SIDE; i++){
+            for (int j = 0; j<SIDE; j++){
+//                tempArray[SIDE-1-j][i] = gameField[i][j];
+                tempArray[i][j]=gameField[SIDE-1-j][i];
             }
         }
-
-
+        for (int k = 0; k<SIDE; k++){
+            for (int m = 0; m<SIDE; m++){
+                gameField[k][m]=tempArray[k][m];
+            }
+        }
+    }
+    private void moveLeft(){
+        boolean compresedRow = false;
+        boolean margedRow = false;
+        for (int i = 0; i<gameField.length; i++){
+            compresedRow =  compressRow(gameField[i]);
+            margedRow = mergeRow(gameField[i]);
+            if (margedRow){
+                compressRow(gameField[i]);
+            }
+        }
+//        for (int i = 0; i<gameField.length; i++){
+//            if(compressRow(gameField[i])){
+//                compresedRow = true;
+//            }
+//            if (mergeRow(gameField[i])){
+//                margedRow =true;
+//            }
+//            if (compressRow(gameField[i])){
+//                compresedRow = true;
+//            }
+//        }
+        if((compresedRow == true) || (margedRow == true)){
+            createNewNumber();
+        }
+        else {
+            return;
+        }
+    }
     private void moveRight(){
-
     }
     private void moveUp(){
 
@@ -167,24 +187,20 @@ public class Game2048 extends Game {
     }
     @Override
     public void onKeyPress(Key key){
-        boolean isKeyMoved = false;
         if (key == Key.LEFT){
             moveLeft();
-            isKeyMoved = true;
+            drawScene();
         }
         else if(key == Key.RIGHT){
             moveRight();
-            isKeyMoved = true;
+            drawScene();
         }
         else if(key == Key.UP){
             moveUp();
-            isKeyMoved = true;
+            drawScene();
         }
         else if (key == Key.DOWN){
             moveDown();
-            isKeyMoved = true;
-        }
-        if(isKeyMoved){
             drawScene();
         }
     }
