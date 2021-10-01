@@ -154,31 +154,46 @@ public class Game2048 extends Game {
         }
     }
     private void moveLeft(){
-        boolean compresedRow = false;
-        boolean margedRow = false;
-        for (int i = 0; i<gameField.length; i++){
-            compresedRow =  compressRow(gameField[i]);
-            margedRow = mergeRow(gameField[i]);
-            if (margedRow){
-                compressRow(gameField[i]);
+//        boolean compresedRow = false;
+////        boolean margedRow = false;
+////        for (int i = 0; i<gameField.length; i++){
+////            compresedRow =  compressRow(gameField[i]);
+////            margedRow = mergeRow(gameField[i]);
+////            if (margedRow){
+////                compressRow(gameField[i]);
+////            }
+////        }
+//////        for (int i = 0; i<gameField.length; i++){
+//////            if(compressRow(gameField[i])){
+//////                compresedRow = true;
+//////            }
+//////            if (mergeRow(gameField[i])){
+//////                margedRow =true;
+//////            }
+//////            if (compressRow(gameField[i])){
+//////                compresedRow = true;
+//////            }
+//////        }
+////        if((compresedRow == true) || (margedRow == true)){
+////            createNewNumber();
+////        }
+////        else {
+////            return;
+////        }
+
+        boolean isNewNumberNeeded = false;
+        for (int[] row : gameField) {
+            boolean wasCompressed = compressRow(row);
+            boolean wasMerged = mergeRow(row);
+            if (wasMerged) {
+                compressRow(row);
+            }
+            if (wasCompressed || wasMerged) {
+                isNewNumberNeeded = true;
             }
         }
-//        for (int i = 0; i<gameField.length; i++){
-//            if(compressRow(gameField[i])){
-//                compresedRow = true;
-//            }
-//            if (mergeRow(gameField[i])){
-//                margedRow =true;
-//            }
-//            if (compressRow(gameField[i])){
-//                compresedRow = true;
-//            }
-//        }
-        if((compresedRow == true) || (margedRow == true)){
+        if (isNewNumberNeeded) {
             createNewNumber();
-        }
-        else {
-            return;
         }
     }
     private void moveRight(){
@@ -215,6 +230,32 @@ public class Game2048 extends Game {
     private void win(){
         isGameStopped = true;
         showMessageDialog(Color.CADETBLUE, "You win!", Color.RED, 22);
+    }
+    private boolean canUserMove(){
+        boolean canMove = false;
+        for (int y = 0; y<gameField.length; y++){
+            for (int x = 0; x<gameField[y].length; x++){
+                if (gameField[y][x]==0){
+                    canMove = true;
+                }
+                if(x<gameField.length-1){
+                    if (gameField[y][x]==gameField[y][x+1]){
+                        canMove = true;
+                    }
+                }
+            }
+        }
+        for (int y = 0; y<gameField.length; y++){
+            for (int x = 0; x<gameField[y].length; x++) {
+                if(y<gameField.length-1){
+                    if (gameField[y][x]==gameField[y+1][x]){
+                        canMove = true;
+                    }
+                }
+                }
+            }
+
+        return canMove;
     }
     @Override
     public void onKeyPress(Key key){
