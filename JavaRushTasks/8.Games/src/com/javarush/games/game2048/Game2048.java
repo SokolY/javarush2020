@@ -14,9 +14,17 @@ public class Game2048 extends Game {
        createGame();
         drawScene();
     }
-        private void createGame(){
-            createNewNumber();
-            createNewNumber();
+     private void createGame(){
+         gameField = new int[SIDE][SIDE];
+         if(isGameStopped){
+                for (int y = 0; y<gameField.length; y++){
+                    for (int x = 0; x < gameField[y].length; x++){
+                        gameField[y][x]=0;
+                    }
+                }
+            }
+         createNewNumber();
+         createNewNumber();
     }
     private void drawScene(){
         for (int y = 0; y<gameField.length; y++){
@@ -253,6 +261,16 @@ public class Game2048 extends Game {
             gameOver();
             return;
         }
+        if (key == Key.SPACE){
+            isGameStopped = true;
+            createGame();
+            drawScene();
+            isGameStopped = false;
+
+        }
+        if(isGameStopped && key != Key.SPACE){
+            return;
+        }
         boolean isKeyPressed = false;
         if (key == Key.LEFT){
             moveLeft();
@@ -273,5 +291,6 @@ public class Game2048 extends Game {
         if(isKeyPressed){
             drawScene();
         }
+
     }
 }
