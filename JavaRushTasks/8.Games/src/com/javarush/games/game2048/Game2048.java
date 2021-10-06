@@ -8,6 +8,7 @@ public class Game2048 extends Game {
     private static final int SIDE =4;
     private int[][]gameField = new int [SIDE][SIDE];
     private boolean isGameStopped = false;
+    private int score = 0;
     @Override
     public void initialize() {
        setScreenSize(SIDE, SIDE);
@@ -139,6 +140,8 @@ public class Game2048 extends Game {
             else if(row[i] == row[i+1]){
                 row[i]= row[i] + row[i+1];
                 row[i+1]=0;
+                score = score + row[i];
+                setScore(score);
             }
         }
         if(Arrays.equals(originalRow, row)){
@@ -259,6 +262,7 @@ public class Game2048 extends Game {
     public void onKeyPress(Key key){
         if(!canUserMove()){
             gameOver();
+//            score = 0;
             return;
         }
         if (key == Key.SPACE){
@@ -266,6 +270,8 @@ public class Game2048 extends Game {
             createGame();
             drawScene();
             isGameStopped = false;
+            score = 0;
+            setScore(score);
 
         }
         if(isGameStopped && key != Key.SPACE){
